@@ -6,7 +6,9 @@ class About extends CI_Controller{
      * Default function.
      * My About controller.
      */
-    public function index(){
+   
+    
+    function index(){
         $data['page'] = 'about';
         $this->load->view('about' , $data);
     }
