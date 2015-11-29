@@ -7,6 +7,7 @@ class About extends CI_Controller{
         $data['page'] = 'about';
         $this->load->view('about' , $data);
     }
+    
 }
 
 ?>
