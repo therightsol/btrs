@@ -1,0 +1,10 @@
+DB OP:
+
+
+C				R			U					D
+ - Create					- Update
+ - DONE						-	Done
+ 
+Extras:
+	- 	Send Email
+	-	encoding/decoding/base64

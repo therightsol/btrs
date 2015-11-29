@@ -1,0 +1,224 @@
+a{
+	color: #F60;
+}
+a:hover{
+	color: #F60;
+}
+.navbar-plain .dropdown .dropdown-menu > li.active > a{
+	color: #F60;
+}
+.navbar-plain .navbar-nav > li > a:hover,
+.navbar-plain .navbar-nav > li.active > a,
+.navbar-plain .navbar-nav > li.open > a,
+.navbar-plain .navbar-nav > .active > a:hover,
+.navbar-plain .navbar-nav > .active > a:focus,
+.navbar-plain .navbar-nav > .open > a:hover{
+	color: #F60;
+}
+.navbar-plain .navbar-nav > li a:hover::before,
+.navbar-plain .navbar-nav > li.active a::before,
+.navbar-plain .navbar-nav > li.open > a::before,
+.navbar-plain .navbar-nav > .active > a:focus::before {
+  background: #F60;
+}
+.navbar-plain .dropdown .dropdown-menu{
+	border-color: #F60;
+}
+.navbar-plain .dropdown .dropdown-menu > li > a:hover, .navbar-plain .dropdown .dropdown-menu > li > a .active{
+	color: #F60;
+}
+.btn-common{
+	background: #F60;
+	border: 2px solid #F60;
+}
+.btn-common:hover{
+	background: rgba(255, 102, 0, 0.7);
+}
+.btn-common.active{
+	border-color: #F60;
+	color: #F60;
+}
+.section-title::before{
+	border-color: #F60;
+}
+.small-title::before{
+	border-color: #F60;
+}
+#service-block-main .service-item:hover i{
+	color: #F60;
+	border-color: #F60;
+}
+#service-block-main .service-item:hover h2{
+	color: #F60;
+}
+#service-block-main .service-item:hover .icon-wrapper::before {
+  background: #F60;
+}
+#service-block-main .service-item:hover .icon-wrapper::after {
+  background: #F60;
+}
+#portfolio .portfolio-items figure figcaption:hover{
+	background: rgba(255, 102, 0, 0.9);
+}
+#other-services .other-service-item .icon .icon-medium{
+	background: #F60;
+}
+#other-services .other-service-item:hover .icon-medium{
+	background: #666;
+}
+#other-services .other-service-item .service-content h3{
+	color: #F60;
+}
+#progress .icon-effect{
+	color: #F60;
+}
+#clients #clients-scroller .owl-pagination .owl-page.active span{
+	background: #F60;
+}
+#clients #clients-scroller .owl-pagination .owl-page span{
+	border-color: #F60;
+}
+#testimonial #testimonial-carousel .carousel-control{
+	color: #F60;
+}
+#testimonial #testimonial-carousel .carousel-control{
+	color: #F60;
+}
+#testimonial .item blockquote small{
+	color: #F60;
+}
+#testimonial .testimonial-inner:before{
+	background: rgba(255, 102, 0, 0.2);
+}
+#blog .blog-item-img .blog-category{
+	background: #F60;
+}
+#blog .blog-item-img .blog-category{
+	background: #F60;
+}
+#blog .blog-item-text h3{
+	color: #F60;
+}
+#blog .blog-item-text .blog-item-info a:hover{
+	color: #F60;
+}
+.scroll-top:hover{
+	background: #F60;
+	border-color: #F60;
+}
+
+/* About Us*/
+.skill-wrapper .progress .progress-bar{
+	background-color: #F60;
+}
+.skill-wrapper .progress .percent{
+	color: #F60;
+}
+#why-choose .icon i{
+	color: #F60;
+}
+#why-choose .tab-container h2{
+	color: #F60;
+}
+#why-choose .tab-menu .list-group > a.active{
+	background: #F60;
+}
+#notice .notice-content{
+	border-color: #F60;
+}
+/* services */
+#service-block-1 .service-item:hover .service-content h2{
+	color: #F60;
+}
+#service-block-1 .service-item:hover .icon{
+	border-color: #F60;
+}
+#service-block-1 .service-item:hover .icon i{
+	background: #F60;
+}
+#service-block-2 .service-inner:hover i{
+	color: #F60;
+}
+#service-block-2 .service-inner:hover h3{
+	color: #F60;
+}
+#team-block-2 .team-member:hover{
+	border-color: #F60;
+}
+.pricing-table-1 .table-header{
+	background: #F60;
+}
+#pricing-block-2{
+	background: #F60;
+}
+.pricing-table-x .plan .price{
+	color: #F60;
+}
+.pricing-table-x .plan .period{
+	color: rgba(255, 102, 0, 0.7);
+}
+.panel-default .panel-heading a{
+	background: #F60;
+}
+/*Blog*/
+#blog-page .sidebar .search-box .form-control:focus, #blog-page .sidebar .search-box button:focus, #blog-page .sidebar .search-box input:focus, #blog-page .sidebar .search-box textarea:focus{
+	border-color: #F60;
+}
+#blog-page .sidebar .plain-search-btn{
+	color: #F60;
+}
+#blog-page .post-content .reading::after{
+	border-color: #F60;
+}
+.light li a{
+	color: #F60;
+}
+#blog-page .widget-title::before{
+	border-color: #F60 !important;
+}
+.flat li a i{
+	background: #F60;
+	border-color: #F60;
+}
+#tabs .tabs-style-2 .nav-tabs li.active a, #tabs .tabs-style-2 .nav-tabs li.active a:hover, #tabs .tabs-style-2 .nav-tabs li.active a:focus, #tabs .tabs-style-2 .nav-tabs li a:hover{
+	border-color: #F60;
+	background-color: #F60;
+}
+#tabs .tabs-style-2 .nav-tabs{
+	border-color: #F60;
+}
+#contact .contact-info-wrapper .contact-item-wrapper i{
+	background: #F60;
+}
+.preset-bg{
+	background: #F60;
+}
+.dark-bg{
+	background: rgba(0, 0, 0, 0.1);
+}
+.btn-danger{
+	background-color: #F60;
+	border-color: #F60;
+}
+.btn-danger:hover,.btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger{
+	background-color: #F36709;
+	border-color: #F36709;
+}
+.page-header .page-header-inner:before{
+	background-color:#F36709!important;
+	opacity: 0.2;
+}
+/*  Mobile menu */
+.slicknav_btn{
+  border-color: #F60;
+}
+.slicknav_btn:hover{
+	background: #F60;
+}
+.slicknav_nav a:hover,
+.slicknav_nav .active{
+  color: #F60;
+}
+.slicknav_menu .slicknav_icon-bar{
+  background: #F60;
+}
