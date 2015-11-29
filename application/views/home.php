@@ -2,6 +2,7 @@
 <body>
 
     <!-- Header area wrapper starts -->
+    <!-- Line added as test file -->
     <header id="header-wrap"> 
         <?php
         include 'includes/topAddressBar.inc';
@@ -581,6 +582,6 @@ include 'includes/footer.inc';
 include 'includes/loader_switcher.inc';
 include 'includes/jsFiles.inc';
 ?>
-
+<!-- text file-->
 </body>
 </html>
