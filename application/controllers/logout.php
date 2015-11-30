@@ -13,10 +13,9 @@ class logout extends CI_Controller{
         
         
         /*
-         * loading logout page to display msg that you are logged out.
-         */
-        echo '<h1>You are successfully logged out. </h1>';
-        $this->load->view('logout', $data);
+         * loading login page -- redirecting.
+         */ 
+        redirect('login');
     }
 }
 
