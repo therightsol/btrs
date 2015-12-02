@@ -44,171 +44,171 @@
                     </div>
                     <div class="portlet-body form"> 
                         <!-- BEGIN FORM-->
-                        
-                        <?php if($success == '') { ?>
-                        
-                        
-                        
-                        <form  action="<?php echo $root; ?>register" method="post"> 
-                            <div class="form-body">
-                                <h3 class="form-section">Person Info</h3>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group <?php if(form_error('username') != '' || $userFound == 'yes'){ ?> has-error <?php } ?>"  > 
-                                            <label class="control-label">Username</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="glyphicon glyphicon-user"></i>
-                                                </span> 
-                                                <input type="text" maxlength="15" class="form-control" name="username" id="username" placeholder="jondoe123" 
-                                                       <?php if($_POST){ ?> value="<?php echo $_POST['username']; ?>" <?php } ?>
+
+                        <?php if ($success == '') { ?>
+
+
+
+                            <form  action="<?php echo $root; ?>register" method="post"> 
+                                <div class="form-body">
+                                    <h3 class="form-section">Person Info</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group <?php if (form_error('username') != '' || $userFound == 'yes') { ?> has-error <?php } ?>"  > 
+                                                <label class="control-label">Username</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="glyphicon glyphicon-user"></i>
+                                                    </span> 
+                                                    <input type="text" maxlength="15" class="form-control" name="username" id="username" placeholder="jondoe123" 
+                                                           <?php if ($_POST) { ?> value="<?php echo $_POST['username']; ?>" <?php } ?>
+                                                           />
+                                                </div> 
+                                                <?php if (form_error('username') != '') { ?>
+                                                    <span class="help-block">
+                                                        <?php echo form_error('username'); ?>
+                                                    </span>
+                                                <?php } ?>
+                                                <?php if ($userFound == 'yes') { ?>
+                                                    <span class="help-block">
+                                                        Sorry! username already taken. <br />
+                                                        Kindly choose another one.
+                                                    </span>
+                                                <?php } ?>
+                                            </div> 
+                                        </div>
+                                        <!--/span-->
+
+                                        <div class="col-md-6">
+                                            <div class="form-group <?php if (form_error('fullname') != '') { ?> has-error <?php } ?>" id="fname"> 
+                                                <label class="control-label">Full Name</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-circle"></i>
+                                                    </span>  
+                                                    <input type="text" maxlength="45" class="form-control" name="fullname" id="fullname" placeholder="John Doe"  <?php if ($_POST) { ?> value="<?php echo $_POST['fullname']; ?>" <?php } ?> /> 
+                                                </div> 
+                                                <?php if (form_error('fullname') != '') { ?>
+                                                    <span class="help-block">
+                                                        <?php echo form_error('fullname'); ?>
+                                                    </span>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group <?php if (form_error('email') != '' || $emailFound == 'yes') { ?> has-error <?php } ?>" >
+                                                <label class="control-label">Email</label> 
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-envelope"></i>
+                                                    </span> 
+                                                    <input type="email" class="form-control" name="email" id="email" placeholder="someone@somedomain.com"  <?php if ($_POST) { ?> value="<?php echo $_POST['email']; ?>" <?php } ?> />  
+                                                </div>                                           
+                                                <?php if (form_error('email') != '') { ?>
+                                                    <span class="help-block">
+                                                        <?php echo form_error('email'); ?>
+                                                    </span>
+
+                                                <?php } ?>
+                                                <?php if ($emailFound == 'yes') { ?>
+                                                    <span class="help-block">
+                                                        Sorry! Email already Exists. <br />
+                                                        Kindly choose another one.
+                                                    </span>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group <?php if (form_error('confemail') != '') { ?> has-error <?php } ?>" >
+                                                <label class="control-label">Confirm Email</label> 
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-envelope"></i>
+                                                    </span> 
+                                                    <input type="email" class="form-control" name="confemail" id="confemail" placeholder="someone@somedomain.com"  <?php if ($_POST) { ?> value="<?php echo $_POST['confemail']; ?>" <?php } ?> />  
+                                                </div> 
+                                                <?php if (form_error('confemail') != '') { ?>
+                                                    <span class="help-block">
+                                                        <?php echo form_error('confemail'); ?>
+                                                    </span>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group  last password-strength <?php if (form_error('password') != '') { ?> has-error <?php } ?>" >
+                                                <label class="control-label">Password</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-asterisk"></i>
+                                                    </span> 
+                                                    <input type="password" placeholder="Enter 8 - 45 characters" class="form-control" name="password" id="password_strength" <?php if ($_POST) { ?> value="<?php echo $_POST['password']; ?>" <?php } ?> />  
+                                                </div> 
+                                                <?php if (form_error('password') != '') { ?>
+                                                    <span class="help-block">
+                                                        <?php echo form_error('password'); ?>
+                                                    </span>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group <?php if (form_error('con_password') != '') { ?> has-error <?php } ?>">
+                                                <label class="control-label">Confirm Password</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-asterisk"></i>
+                                                    </span> 
+                                                    <input type="password" placeholder="Enter 8 - 45 characters" class="form-control" name="con_password" id="password_strength2" <?php if ($_POST) { ?> value="<?php echo $_POST['con_password']; ?>" <?php } ?> > 
+                                                </div> 
+                                                <?php if (form_error('con_password') != '') { ?>
+                                                    <span class="help-block">
+                                                        <?php echo form_error('con_password'); ?>
+                                                    </span>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!-- /row --> 
+
+                                    <h3 class="form-section">Address</h3>
+                                    <div class="row">
+                                        <div class="col-md-12 ">
+                                            <div class="form-group">
+                                                <label>Street</label>
+                                                <input type="text" name="street" class="form-control" 
+                                                       <?php if ($_POST) { ?> value="<?php echo $_POST['street']; ?>" <?php } ?>
                                                        />
-                                            </div> 
-                                            <?php if(form_error('username') != ''){ ?>
-                                            <span class="help-block">
-                                                <?php echo form_error('username'); ?>
-                                            </span>
-                                            <?php } ?>
-                                            <?php if($userFound == 'yes'){ ?>
-                                            <span class="help-block">
-                                                Sorry! username already taken. <br />
-                                                Kindly choose another one.
-                                            </span>
-                                            <?php } ?>
-                                        </div> 
-                                    </div>
-                                    <!--/span-->
-                                    
-                                    <div class="col-md-6">
-                                        <div class="form-group <?php if(form_error('fullname') != ''){ ?> has-error <?php } ?>" id="fname"> 
-                                            <label class="control-label">Full Name</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-circle"></i>
-                                                </span>  
-                                                <input type="text" maxlength="45" class="form-control" name="fullname" id="fullname" placeholder="John Doe"  <?php if($_POST){ ?> value="<?php echo $_POST['fullname']; ?>" <?php } ?> /> 
-                                            </div> 
-                                            <?php if(form_error('fullname') != ''){ ?>
-                                            <span class="help-block">
-                                                <?php echo form_error('fullname'); ?>
-                                            </span>
-                                            <?php } ?>
+                                            </div>
                                         </div>
                                     </div>
-                                    <!--/span-->
-                                    
-                                </div>
-                                <!--/row-->
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group <?php if(form_error('email') != '' || $emailFound == 'yes'){ ?> has-error <?php } ?>" >
-                                            <label class="control-label">Email</label> 
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-envelope"></i>
-                                                </span> 
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="someone@somedomain.com"  <?php if($_POST){ ?> value="<?php echo $_POST['email']; ?>" <?php } ?> />  
-                                            </div>                                           
-                                            <?php if(form_error('email') != ''){ ?>
-                                            <span class="help-block">
-                                                <?php echo form_error('email'); ?>
-                                            </span>
-                                            
-                                            <?php } ?>
-                                             <?php if($emailFound == 'yes'){ ?>
-                                            <span class="help-block">
-                                                Sorry! Email already Exists. <br />
-                                                Kindly choose another one.
-                                            </span>
-                                            <?php } ?>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <input type="text" name="city" class="form-control" 
+                                                       <?php if ($_POST) { ?> value="<?php echo $_POST['city']; ?>" <?php } ?>
+                                                       />
+                                            </div>
                                         </div>
-                                    </div>
-                                    
-                                    <!--/span-->
-                                    <div class="col-md-6">
-                                        <div class="form-group <?php if(form_error('confemail') != ''){ ?> has-error <?php } ?>" >
-                                            <label class="control-label">Confirm Email</label> 
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-envelope"></i>
-                                                </span> 
-                                                <input type="email" class="form-control" name="confemail" id="confemail" placeholder="someone@somedomain.com"  <?php if($_POST){ ?> value="<?php echo $_POST['confemail']; ?>" <?php } ?> />  
-                                            </div> 
-                                            <?php if(form_error('confemail') != ''){ ?>
-                                            <span class="help-block">
-                                                <?php echo form_error('confemail'); ?>
-                                            </span>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-                                    <!--/span-->
-                                </div>
-                                <!--/row-->
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group  last password-strength <?php if(form_error('password') != ''){ ?> has-error <?php } ?>" >
-                                            <label class="control-label">Password</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-asterisk"></i>
-                                                </span> 
-                                                <input type="password" placeholder="Enter 8 - 45 characters" class="form-control" name="password" id="password_strength" <?php if($_POST){ ?> value="<?php echo $_POST['password']; ?>" <?php } ?> />  
-                                            </div> 
-                                            <?php if(form_error('password') != ''){ ?>
-                                            <span class="help-block">
-                                                <?php echo form_error('password'); ?>
-                                            </span>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-
-                                    <!--/span-->
-                                    <div class="col-md-6">
-                                        <div class="form-group <?php if(form_error('con_password') != ''){ ?> has-error <?php } ?>">
-                                            <label class="control-label">Confirm Password</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-asterisk"></i>
-                                                </span> 
-                                                <input type="password" placeholder="Enter 8 - 45 characters" class="form-control" name="con_password" id="password_strength2" <?php if($_POST){ ?> value="<?php echo $_POST['con_password']; ?>" <?php } ?> > 
-                                            </div> 
-                                            <?php if(form_error('con_password') != ''){ ?>
-                                            <span class="help-block">
-                                                <?php echo form_error('con_password'); ?>
-                                            </span>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-                                    <!--/span-->
-                                </div>
-                                <!-- /row --> 
-
-                                <h3 class="form-section">Address</h3>
-                                <div class="row">
-                                    <div class="col-md-12 ">
-                                        <div class="form-group">
-                                            <label>Street</label>
-                                            <input type="text" name="street" class="form-control" 
-                                                   <?php if($_POST){ ?> value="<?php echo $_POST['street']; ?>" <?php } ?>
-                                                   />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>City</label>
-                                            <input type="text" name="city" class="form-control" 
-                                                   <?php if($_POST){ ?> value="<?php echo $_POST['city']; ?>" <?php } ?>
-                                                   />
-                                        </div>
-                                    </div>
-                                    <!--/span-->
-                                    <div class="col-md-6">
-                                        <div class="form-group"  />
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group"  />
                                             <label>State</label>
                                             <input type="text" name="state" class="form-control" 
-                                                   <?php if($_POST){ ?> value="<?php echo $_POST['state']; ?>" <?php } ?>
+                                                   <?php if ($_POST) { ?> value="<?php echo $_POST['state']; ?>" <?php } ?>
                                                    />
                                         </div>
                                     </div>
@@ -462,162 +462,162 @@
                                     </div>
                                     <!--/span--> 
                                     <div class="col-md-6">
-                                        <div class="form-group <?php if(form_error('phone') != ''){ ?> has-error <?php } ?>">
+                                        <div class="form-group <?php if (form_error('phone') != '') { ?> has-error <?php } ?>">
                                             <label class="control-label">Phone</label>
-                                            <input class="form-control" name="phone" type="text" placeholder="+923334036014"  <?php if($_POST){ ?> value="<?php echo $_POST['phone']; ?>" <?php } ?>/>
-                                            
-                                        
-                                   
-                                    <?php if(form_error('phone') != ''){ ?>
-                                            <span class="help-block">
-                                                <?php echo form_error('phone'); ?>
-                                            </span>
+                                            <input class="form-control" name="phone" type="text" placeholder="+923334036014"  <?php if ($_POST) { ?> value="<?php echo $_POST['phone']; ?>" <?php } ?>/>
+
+
+
+                                            <?php if (form_error('phone') != '') { ?>
+                                                <span class="help-block">
+                                                    <?php echo form_error('phone'); ?>
+                                                </span>
                                             <?php } ?>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-actions right"> 
-                                <button type="submit" class="btn blue"><i class="fa fa-check"></i>Register</button>
-                            </div>
+                        </div>
+                        <div class="form-actions right"> 
+                            <button type="submit" class="btn blue"><i class="fa fa-check"></i>Register</button>
+                        </div>
                         </form>
                         <!-- END FORM-->
-                        <?php }else if ($success == 'yes'){ ?>
+                    <?php } else if ($success == 'yes') { ?>
                         <div class="alert alert-success">
                             You have successfully created your account! <br />
                             Kindly check your email. And confirm your account to continue.
                         </div> 
-                        <?php } ?>
-                    </div>
-                </div>   
-            </div> 
-        </div>
+                    <?php } ?>
+                </div>
+            </div>   
+        </div> 
     </div>
-    <!-- Registration form - END -->
+</div>
+<!-- Registration form - END -->
 
- 
-    
-     
-     
-    <?php
-    include 'includes/footer.inc';
-    include 'includes/loader_switcher.inc';
-    include 'includes/jsFiles.inc';
-    ?>
-    
-    <script>
-        $('#fullname').blur(function(){
-            var length = $('#fullname').val().length;
-            
-            if(length < 3 || length > 45){
-                if(!$('#fname').hasClass('has-error')){
-                    $('#fname').addClass('has-error').append('<span class="help-block" id="fnameError">Full name should be 3 to 45 characters long.</span>');  
-                }
-            }else{
-                $('#fname').removeClass('has-error');
-                $('#fnameError').remove();
+
+
+
+
+<?php
+include 'includes/footer.inc';
+include 'includes/loader_switcher.inc';
+include 'includes/jsFiles.inc';
+?>
+
+<script>
+    $('#fullname').blur(function () {
+        var length = $('#fullname').val().length;
+
+        if (length < 3 || length > 45) {
+            if (!$('#fname').hasClass('has-error')) {
+                $('#fname').addClass('has-error').append('<span class="help-block" id="fnameError">Full name should be 3 to 45 characters long.</span>');
             }
-        }); 
-        
-         
-        // validating password
-        $('#password_strength').keyup(function(){
-              
-            var regExp = /^((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,})$/;
+        } else {
+            $('#fname').removeClass('has-error');
+            $('#fnameError').remove();
+        }
+    });
 
-            var result = regExp.test($('#password_strength').val());
-            //console.log(result);
 
-            if(result === true){
-                    $('#password_strength').parents('.form-group').removeClass('has-error').children('.help-block').remove();
-            }else{
-                if(!$('#password_strength').parents('.form-group').hasClass('has-error')){
-                    $('#password_strength').parents('.form-group').addClass('has-error')
-                            .append('<span class="help-block"><ul><li> Password should contains at least 8 characters.</li><li> Password should contains at least 1 number.</li><li> Password should contains at least 1 uppercase letter.</li><li> Password should contains at least 1 special character.</li><li> Password should matched with Re-type password field.</li></ul></span>'); 
-                }
+    // validating password
+    $('#password_strength').keyup(function () {
+
+        var regExp = /^((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,})$/;
+
+        var result = regExp.test($('#password_strength').val());
+        //console.log(result);
+
+        if (result === true) {
+            $('#password_strength').parents('.form-group').removeClass('has-error').children('.help-block').remove();
+        } else {
+            if (!$('#password_strength').parents('.form-group').hasClass('has-error')) {
+                $('#password_strength').parents('.form-group').addClass('has-error')
+                        .append('<span class="help-block"><ul><li> Password should contains at least 8 characters.</li><li> Password should contains at least 1 number.</li><li> Password should contains at least 1 uppercase letter.</li><li> Password should contains at least 1 special character.</li><li> Password should matched with Re-type password field.</li></ul></span>');
             }
-        
-        });
-        
-        
-        // Password strengthn code
-        $(function(){
-            $('input#password_strength').passwordstrength({
-                    'minlength': 8,
-                    'number'   : true,
-                    'capital'  : true,
-                    'special'  : true,
-                    'labels'   : {
-                            'general'   : 'The password must have :',
-                            'minlength' : 'At leaset {{minlength}} characters',
-                            'number'    : 'At least one number',
-                            'capital'   : 'At least one uppercase letter',
-                            'special'   : 'At least one special character'
-                    }
-            });
-	
-        });
-        
-        
-        
-        
-    </script>
-    
-    
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/fuelux/js/spinner.min.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/ckeditor/ckeditor.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script> 
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/clockface/js/clockface.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-daterangepicker/moment.min.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/jquery.input-ip-address-control-1.0.min.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/jquery-multi-select/js/jquery.quicksearch.js"></script>
-        <script src="<?php echo $root; ?>assets/metronic//plugins/jquery.pwstrength.bootstrap/src/pwstrength.js" type="text/javascript"></script>
-        <script src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-switch/static/js/bootstrap-switch.min.js" type="text/javascript"></script>
-        <script src="<?php echo $root; ?>assets/metronic//plugins/jquery-tags-input/jquery.tagsinput.min.js" type="text/javascript"></script>
-        <script src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
-        <script src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
-        <script src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
-        <script src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script>
-    <!-- END PAGE LEVEL PLUGINS -->
+        }
+
+    });
 
 
-     <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic/plugins/jquery-validation/dist/additional-methods.min.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-    <!-- END PAGE LEVEL PLUGINS -->
-
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script type="text/javascript" src="<?php echo $root; ?>assets/metronic/plugins/select2/select2.min.js"></script>
-    <!-- END PAGE LEVEL PLUGINS -->
-    
-    <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="<?php echo $root; ?>assets/metronic/scripts/app.js"></script> 
-        <script src="<?php echo $root; ?>assets/metronic/scripts/form-components.js"></script>
-    <!-- END PAGE LEVEL SCRIPTS -->
-    
-    <script>
-        jQuery(document).ready(function() {       
-           // initiate layout and plugins
-           App.init(); 
-           FormComponents.init();
-            
+    // Password strengthn code
+    $(function () {
+        $('input#password_strength').passwordstrength({
+            'minlength': 8,
+            'number': true,
+            'capital': true,
+            'special': true,
+            'labels': {
+                'general': 'The password must have :',
+                'minlength': 'At leaset {{minlength}} characters',
+                'number': 'At least one number',
+                'capital': 'At least one uppercase letter',
+                'special': 'At least one special character'
+            }
         });
-        
-        
-        
-    </script>
-    
+
+    });
+
+
+
+
+</script>
+
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/fuelux/js/spinner.min.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script> 
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/jquery.input-ip-address-control-1.0.min.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic//plugins/jquery-multi-select/js/jquery.quicksearch.js"></script>
+<script src="<?php echo $root; ?>assets/metronic//plugins/jquery.pwstrength.bootstrap/src/pwstrength.js" type="text/javascript"></script>
+<script src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-switch/static/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="<?php echo $root; ?>assets/metronic//plugins/jquery-tags-input/jquery.tagsinput.min.js" type="text/javascript"></script>
+<script src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+<script src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+<script src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script src="<?php echo $root; ?>assets/metronic//plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic/plugins/jquery-validation/dist/additional-methods.min.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="<?php echo $root; ?>assets/metronic/plugins/select2/select2.min.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="<?php echo $root; ?>assets/metronic/scripts/app.js"></script> 
+<script src="<?php echo $root; ?>assets/metronic/scripts/form-components.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+
+<script>
+    jQuery(document).ready(function () {
+        // initiate layout and plugins
+        App.init();
+        FormComponents.init();
+
+    });
+
+
+
+</script>
+
 
 
 

@@ -166,7 +166,7 @@ class Register extends CI_Controller{
 		}
 		}else{
 			// if not post then show form.
-            $this->load->view('reg_form', $data);
+                    $this->load->view('reg_form', $data);
         }
         
     }// function close

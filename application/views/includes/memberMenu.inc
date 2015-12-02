@@ -37,6 +37,12 @@
                                 About Us
                             </a>
                         </li> 
+                        
+                        <li <?php if ($page == 'news') { ?> class="active" <?php } ?> >
+                            <a href="<?php echo $root; ?>news" >
+                                News
+                            </a>
+                        </li> 
                         <li <?php if ($page == 'contact') { ?> class="active" <?php } ?> >
                             <a href="<?php echo $root; ?>contact" >
                                 Contact Us
