@@ -1299,7 +1299,7 @@
                     <h4>Oops! You're lost.</h4>
 
                     We can not find the page you're looking for.
-                    Return <a href="<?php echo $root; ?>home" >home </a> or try the search bar below. 
+                    Return <a href="<?php echo $root; ?>home" >Home</a> . 
                 </div>
             </div>
         </div>

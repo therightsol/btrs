@@ -5,9 +5,16 @@
     <!-- Header area wrapper starts -->
     <header id="header-wrap"> 
         <?php
-        include 'includes/topAddressBar.inc';
-        include 'includes/annonymousMenu.inc';
-        ?>
+        
+    $username = $this->session->userdata('username');
+        if (empty($username)) {
+            // user not logged in so,
+            include 'includes/annonymousMenu.inc';
+        } else {
+            // user is logged in so
+            include 'includes/memberMenu.inc';
+        }
+            ?>
     </header>    
 
     <!-- Page Header -->
