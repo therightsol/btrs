@@ -60,6 +60,12 @@
                                         Add News
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo $root; ?>news">
+                                        view News
+                                    </a>
+                                </li>
+
 
                             </ul>
 
