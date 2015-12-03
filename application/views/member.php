@@ -12,9 +12,7 @@
         } else {
             // user is logged in so
             include 'includes/memberMenu.inc';
-        }
-        ?>
-
+       ?>
     </header>   
     <div class="page-header">
         <div class="page-header-inner">
@@ -1280,6 +1278,33 @@
     </div>
     <!-- END PAGE CONTENT-->
 </div>
+        <?php } 
+    if (empty($username)) { ?>
+    <div class="page-header">
+        <div class="page-header-inner">
+            <div class="container">
+                <h1 class="section-title page-title">
+                    Error
+                </h1>
+                <ol class="breadcrumb">
+                    
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="alert alert-danger">
+                    <h4>Oops! You're lost.</h4>
+
+                    We can not find the page you're looking for.
+                    Return <a href="<?php echo $root; ?>home" >home </a> or try the search bar below. 
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php }?>
     <?php
     include 'includes/footer.inc';
     include 'includes/loader_switcher.inc';
