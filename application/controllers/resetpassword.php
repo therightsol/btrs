@@ -9,7 +9,7 @@ class Resetpassword extends CI_Controller {
         $data['page'] = 'Resetpassword';
         $data['emailFound'] = '';
         $rules = array(
-            array('field' => 'email',
+            array('field' =>'email',
                 'label' => 'Enter Email',
                 'rules' => 'required|max_length[45]|valid_email|trim'
             )
@@ -34,8 +34,6 @@ class Resetpassword extends CI_Controller {
             if ($uemail_found == 'yes') {
 
                 $data['emailFound'] = 'yes';
-
-
                 $this->send_email($uemail);
 
                 $this->load->view('re-pass', $data);
