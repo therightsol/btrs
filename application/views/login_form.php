@@ -28,7 +28,7 @@
                         Login Page
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="about.html#">Home</a></li>
+                        <li><a href="<?php echo $root; ?>">Home</a></li>
                         <li class="page">Login</li>
                     </ol>
                 </div>
