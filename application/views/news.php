@@ -22,7 +22,7 @@
         <div class="page-header-inner">
             <div class="container">
                 <h1 class="section-title page-title">
-                    Insert News
+                    News
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $root; ?>">Home</a></li>
@@ -38,7 +38,8 @@
         <div class="portlet box green green-stripe" style="margin-top:30px;">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa-newspaper-o"></i>News
+                   
+                    <i class="fa fa-newspaper-o"></i>News
                 </div>
 
             </div>
