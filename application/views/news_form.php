@@ -15,25 +15,27 @@
         } else {
             // user is logged in so
             include 'includes/memberMenu.inc';
-       ?>
-    </header>  
-    <!-- Page Header -->
+            ?>
 
-    <div class="page-header">
-        <div class="page-header-inner">
-            <div class="container">
-                <h1 class="section-title page-title">
-                    Insert News
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="<?php echo $root; ?>">Home</a></li>
-                    <li class="page">Insert News</li>
-                </ol>
+        </header>  
+        <!-- Page Header -->
+
+        <div class="page-header">
+            <div class="page-header-inner">
+                <div class="container">
+                    <h1 class="section-title page-title">
+                        Insert News
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="<?php echo $root; ?>">Home</a></li>
+                        <li class="page">Insert News</li>
+                    </ol>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Page Header End -->
+        <!-- Page Header End -->
 
+    </div>
     <br />
     <?php if ($success == 'no' || $success == '') { ?>
         <div class="container">
@@ -44,10 +46,8 @@
                             <div class="caption">
                                 Add News!
                             </div>
-                            <div class="tools">
-                                <a href="javascript:;" class="collapse"></a>
-                                <a href="javascript:;" class="reload"></a>
-                            </div>
+
+
                         </div>
                         <div class="portlet-body form"> 
                             <!-- BEGIN FORM-->
@@ -56,7 +56,7 @@
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group" > 
+                                            <div class="form-group <?php if ($usermatch == 'no') { ?> has-error <?php } ?>" > 
                                                 <label class="control-label"> Added By</label>
                                                 <div class="input-group">
 
@@ -67,6 +67,20 @@
                                                     ?>" readonly="" /> 
 
                                                 </div>
+                                                <?php if ($usermatch == 'no') { ?>
+
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <div class="alert alert-danger">
+                                                                u can't change the name.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                <?php } ?>
+
                                             </div> 
                                         </div>
                                         <br/> <br />
@@ -95,11 +109,11 @@
 
                                                 </div>
 
-                                                    <?php if (form_error('agree') != '') { ?>
+                                                <?php if (form_error('agree') != '') { ?>
                                                     <span class="help-block">
-                                                    <?php echo form_error('agree'); ?>
+                                                        <?php echo form_error('agree'); ?>
                                                     </span>
-    <?php } ?>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                         <br /><br />
@@ -108,14 +122,33 @@
                                                 <label class="control-label">Write your News Here</label>
                                                 <div class="input-group">
 
-                                                    <textarea cols='50' rows='10' style=" resize:none;"  name="write_news"></textarea>
+                                                    <textarea cols='50' rows='10' style=" resize:none;"  name="write_news"  ><?php
+                                                        if ($_POST) {
+                                                            echo $_POST['write_news'];
+                                                        }
+                                                        ?></textarea>
+
+
                                                         <?php if (form_error('write_news') != '') { ?>
                                                         <span class="help-block">
                                                         <?php echo form_error('write_news'); ?>
                                                         </span>
-    <?php } ?>
+        <?php } ?>
                                                     <br />
-                                                    
+                                                    <div class="form-group <?php if (form_error('agree_change') != '') { ?> has-error <?php } ?>" > 
+                                                        <div class="input-group">
+
+
+                                                            <input type="checkbox" name="agree_change" id="change_news" />  
+                                                            <label class="control-label" id="change_news"  style="margin-left:5px;" > Do You Really Want to Replace It with Orignal News?</label>
+
+                                                        </div>
+                                                            <?php if (form_error('agree_change') != '') { ?>
+                                                            <span class="help-block">
+                                                            <?php echo form_error('agree_change'); ?>
+                                                            </span>
+        <?php } ?>
+                                                    </div>
                                                 </div>
                                             </div> 
                                         </div>
@@ -136,12 +169,10 @@
                 </div> 
             </div>
         </div>  
-    </form>
-                            
-                            <?php
-                             }
-        ?>
-<?php }
+        </form>
+        <?php
+    }
+}
 if ($success == 'yes') {
     ?>
 
@@ -154,12 +185,19 @@ if ($success == 'yes') {
     </div>
     <?php
 }
-?>
+if (empty($username)) {
+    ?>
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-danger">
 
+                Unkwon ERROR :1004.
+            </div>
+        <?php } ?>
 
-<?php
-include 'includes/footer.inc';
-include 'includes/loader_switcher.inc';
-include 'includes/jsFiles.inc';
-?>
+        <?php
+        include 'includes/footer.inc';
+        include 'includes/loader_switcher.inc';
+        include 'includes/jsFiles.inc';
+        ?>
 

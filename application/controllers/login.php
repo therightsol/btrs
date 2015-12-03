@@ -85,6 +85,7 @@ class Login extends CI_Controller {
                             $this->session->set_userdata('homenumber', $user_record['home_number']);
                             
                             
+                            
                             // Last Step
                             redirect('member');
                             

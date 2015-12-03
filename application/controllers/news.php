@@ -7,6 +7,7 @@ class News extends CI_Controller {
     public function index() {
 
         $data['page'] = 'News';
+       
         $this->load->view('news', $data);
     }
 
@@ -14,6 +15,7 @@ class News extends CI_Controller {
         $this->load->helper('form');
         $this->load->helper('date');
         $data['page'] = 'News';
+         $data['usermatch'] = '';
         $data['success'] = '';
 
         if ($_POST) {
@@ -45,7 +47,7 @@ class News extends CI_Controller {
 
                 $this->load->model('btrsnews');
                 $username = $this->session->userdata('username');
-
+                $un= $this->input->post('username',true);
                 $show_now = $this->input->post('agree', TRUE);
                 $full_news = $this->input->post('write_news', TRUE);
                 $checkbox = $this->input->post('agree_change', TRUE);
@@ -61,26 +63,29 @@ class News extends CI_Controller {
 
                 $this->btrsnews->insertRecord();
 
-                $news_record = $this->btrsnews->getRecord($full_news, 'news');
+                $news_record = $this->btrsnews->getRecord();
                 // type casting, changing obj or std_class to array
                 $news_record = (array) $news_record;
-                //var_dump($news_record) ;
-                //exit();
-                $this->load->library('session');
+                if ($un == $username){
+                    $usermatch = 'yes';
+                //echo '<tt><pre>' . var_export($news_record, True) . '</tt></pre>';exit;
+               //
+               //var_dump($news_record) ;
+                
+               //exit();
+                
 
-                /*
-                 *  saving session. because session is secure and will save on server side.
-                 * takes 2 parameters. Key and Value
-                 */
+                
+                
 
-                $this->session->set_userdata('added_on', $news_record['added_on']);
-                $this->session->set_userdata('isActive', $news_record['isActive']);
-                $this->session->set_userdata('news', $full_news);
-                //var_dump($news_record['isActive']);
-
-
+                $data['$usermatch'] = 'yes';
                 $data['success'] = 'yes';
                 $this->load->view('news_form', $data);
+                }else{
+                    //echo ' u change username';
+                    $data['usermatch'] = 'no';
+                    $this->load->view('news_form', $data);
+                }
             } else {
                 $data['page'] = 'News';
                 $data['success'] = 'no';
