@@ -25,24 +25,22 @@
                             <a href="<?php echo $root; ?>" >
                                 Home
                             </a>
-                        </li>        
-                        
-                        <li <?php if ($page == 'logout') { ?> class="active" <?php } ?> >
-                            <a href="<?php echo $root; ?>logout" >
-                                Logout
+                        </li> 
+                        <li <?php if ($page == 'member') { ?> class="active" <?php } ?> >
+                            <a href="<?php echo $root; ?>member" >
+                                Profile
                             </a>
-                        </li>   
+                        </li> 
+
+
+
                         <li <?php if ($page == 'about') { ?> class="active" <?php } ?> >
                             <a href="<?php echo $root; ?>about" >
                                 About Us
                             </a>
                         </li> 
-                        
-                        <li <?php if ($page == 'news') { ?> class="active" <?php } ?> >
-                            <a href="<?php echo $root; ?>news" >
-                                News
-                            </a>
-                        </li> 
+
+
                         <li <?php if ($page == 'contact') { ?> class="active" <?php } ?> >
                             <a href="<?php echo $root; ?>contact" >
                                 Contact Us
@@ -50,74 +48,31 @@
                         </li> 
 
 
-                        <li class="dropdown dropdown-toggle">
-                            <a href="about.html#" data-toggle="dropdown">
-                                Booking
+
+                        <li <?php if ($page == 'news') { ?> class="active" <?php } ?> class="dropdown dropdown-toggle">
+                            <a href="<?php echo $root; ?>news"  data-toggle="dropdown">
+                                News
                             </a>
 
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="portfolio-col-3.html">
-                                        Hotel Booking
+                                    <a href="<?php echo $root; ?>news/insert">
+                                        Add News
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="portfolio-col-4.html">
-                                        Bus Ticket Booking 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="portfolio-item.html">
-                                        Track consignment
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="portfolio-item.html">
-                                        Bus Timing
-                                    </a>
-                                </li>
+
                             </ul>
 
                         </li>
+                        <li <?php if ($page == 'logout') { ?> class="active" <?php } ?> >
+                            <a href="<?php echo $root; ?>logout" >
+                                Logout
+                            </a>
+                        </li> 
 
 
 
-                        <li class="dropdown dropdown-toggle">
 
-
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="sidebar-blog.html">
-                                        Blog View
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="blog-single.html">
-                                        Single Post
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="imagepost.html">
-                                        Image Post
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="gallery.html">
-                                        Gallery Post
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="video.html">
-                                        Video Post
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="quote.html">
-                                        Quote Post
-                                    </a>
-                                </li>   
-                            </ul>                    
-                        </li>
 
                         <!-- Search in right of nav -->
                         <li class="search">
