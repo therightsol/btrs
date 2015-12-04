@@ -21,7 +21,7 @@
     <div class="page-header">
         <div class="page-header-inner">
             <div class="container">
-                <h1 class="section-title page-title">
+                <h1 class="section-title page-title"> 
                     News
                 </h1>
                 <ol class="breadcrumb">
@@ -44,99 +44,51 @@
 
             </div>
             <div class="portlet-body">
-                <div class="panel-group accordion" id="accordion1">
+                
+                <?php 
+                if(!empty($news_rec)){
+                $x = 1;
+                foreach ($news_rec as $key => $value){ ?>
+                
+                <div class="panel-group accordion" id="accordion<?php echo $x; ?>">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_1">
-                                    Collapsible Group Item #1 </a>
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_<?php echo $x; ?>">
+                                    <?php //echo '<tt><pre>' . var_export( $value, TRUE) . '</pre></tt>' 
+                                        echo 'News Date  |  ' . $value['added_on']; 
+                                    ?></a>
                             </h4>
                         </div>
-                        <div id="collapse_1" class="panel-collapse in">
+                        <div id="collapse_<?php echo $x; ?>" 
+                             class="panel-collapse 
+                                 <?php if($x == '1'){?> in <?php }else { ?> collapse <?php } ?>"
+                        >
                             <div class="panel-body">
                                 <p>
-                                    Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.
-                                </p>
-                                <p>
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                    <?php echo $value['news']; ?>
                                 </p>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2">
-                                    Collapsible Group Item #2 </a>
-                            </h4>
-                        </div>
-                        <div id="collapse_2" class="panel-collapse collapse">
-                            <div class="panel-body" style="height:200px; overflow-y:auto;">
-                                <p>
-                                    111111Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.
-                                </p>
-                                <p>
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                </p>
-                                <p>
-                                    Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.
-                                </p>
-                                <p>
-                                    <a class="btn blue" href="ui_tabs_accordions_navs.html#collapse_2" target="_blank">Activate this section via URL</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_3">
-                                    Collapsible Group Item #3 </a>
-                            </h4>
-                        </div>
-                        <div id="collapse_3" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
-                                </p>
-                                <p>
-                                    Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.
-                                </p>
-                                <p>
-                                    <a class="btn green" href="ui_tabs_accordions_navs.html#collapse_3" target="_blank">Activate this section via URL</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_4">
-                                    Collapsible Group Item #4 </a>
-                            </h4>
-                        </div>
-                        <div id="collapse_4" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>
-                                    Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.
-                                </p>
-                                <p>
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
-                                </p>
-                                <p>
-                                    Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.
-                                </p>
-                                <p>
-                                    <a class="btn red" href="ui_tabs_accordions_navs.html#collapse_4" target="_blank">Activate this section via URL</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    </div> 
                 </div>
+                
+                <?php $x++; }
+                }else {
+                    // if $news_rec is empty
+                ?>
+                
+                <div class="alert alert-info">
+                    <strong> There is no news to display </strong>
+                </div>
+               <?php    
+                }
+                ?>
             </div>
         </div>
     </div>
-    <!-- END News section-->
+</div>
+<!-- END News section-->
 
 
     <!-- news section End -->

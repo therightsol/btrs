@@ -19,8 +19,8 @@ class Resetpassword extends CI_Controller {
 
         if (!$this->form_validation->run() == FALSE) {
             $this->load->model('user');
-            $uemail = $this->input->post('email', TRUE);
-
+            $uemail = $this->input->post('email', TRUE); 
+            
             $db_mail = $this->user->getRecord(FALSE, 'email');
             //var_dump($db_mail);
             //exit();
@@ -31,12 +31,45 @@ class Resetpassword extends CI_Controller {
                     $uemail_found = 'yes';
                 }
             }
+            
+            
+            
             if ($uemail_found == 'yes') {
+                // email is found so continue.
+                
+                
+                // getting record from users table
+                $cols = ['isactive'];
+                
+                /*
+                 * NOTE: it will give us full record. 
+                 * Debug and get just isactive column.
+                 */
+                $rec = $this->user->getRecord($uemail, 'email');
+                
+                $email_active = ''; 
+                
+                /*
+                 * check is email active or not.
+                 * if active then continue to send email else show error. 
+                 * That account is not active.
+                 */
+                if($email_active == 'yes'){
+                    // email found and email is active.
+                    
+                    /*
+                     * send email
+                     */
+                    
+                    
+                    
+                    $data['emailFound'] = 'yes';
+                    $this->send_email($uemail);
 
-                $data['emailFound'] = 'yes';
-                $this->send_email($uemail);
-
-                $this->load->view('re-pass', $data);
+                    $this->load->view('re-pass', $data);
+                }else {
+                    // email is not active.
+                } 
             } else {
                 //echo 'email error';
                 $data['emailFound'] = 'no';
@@ -49,28 +82,41 @@ class Resetpassword extends CI_Controller {
 
     private function send_email($userEmail) {
         /*
-         * Send Email is Pending
-         *  i)  Confirmation of email account.
-         *  ii) if email is confirmed by user by clicking on confirmation link then,
-         *          -->     send email to Admin that a new user has been created. And set privilages for this user.
-         */
-
-        // Loading encryption library to encrypt username
-        //$this->load->library('encrypt');
-        // $this->load->model('basic_functions');
-        //$encryptionKey = $this->basic_functions->getEncryptionKey();
-        //exit($encryptionKey);
-        // $encrypteUserName = $this->encrypt->encode($username, $encryptionKey);
-        //echo($encrypteUserName) . '<br /><br />';
-        //$base64userName = base64_encode($encrypteUserName);   // changing username to base64 algo.
-        //echo $base64userName; exit();
-
-        $message = '<strong> Hi! ' . ' </strong><br /><br />'
-                . 'You Can change Your password. Kindly click on below link to change your password. <br />'
-                . '<a href="' . base_url() . 'verify/password" > Click here </a>'
-                . '<br /><br /><br /><br /><br /><br /><br /><hr />'
-                . '<strong> ADMIN - BTRS </strong><br /><br />'
-                . '<hr /> Thankyou for choosing us. <br /> <br />';
+         * FLOW:
+         *  1)  encrypt email.
+         *  2)  encode with base64
+         *  3)  make link   --  $root . 'controler/function/' . $encoded_email;
+         *  4)  send this link to $userEmail with some msg that click on link to change password.
+         *  5)  user clicks on link.
+         *  6)  is parameter (encoded email) found and not empty.
+         *          IF FOUND
+         *          ->  decode base 64
+         *          ->  decrypt and get original email.
+         *          -> check if this email is available in DB.
+         *              -> if available continue to reset STEP __7__
+         *              -> else show error . 
+         *      -> IF NOT
+         *          -> show error.
+         *
+         *  7)  load view to display reset password form like below;
+         *      ------------
+         *      ------------            Password
+         * 
+         *      ------------
+         *      ------------            Retype Password
+         * 
+         * 
+         *  8)  Validate password according to Register controller or our old logic.    
+         *          ->  (Show error if not validate)
+         *          ->  form populate ... set_value
+         *  9)  if validate success.
+         *      -> Hashing password
+         *      -> saving into DB.
+         *      -> Send email that your password has been updated. If this is not you contact to admin
+         * 
+         */ 
+        
+        $message = '';
 
         $this->load->library('email');
         $success = $this->email->from('trsolutions.trainingcenter@gmail.com')
