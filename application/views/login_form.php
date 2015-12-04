@@ -44,7 +44,7 @@
                         <div class="portlet box green">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fa fa-reorder"></i>RESET Your Password
+                                    <i class="fa fa-reorder"></i>login Here
                                 </div>
 
                             </div>
