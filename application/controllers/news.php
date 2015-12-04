@@ -5,9 +5,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class News extends CI_Controller {
 
     public function index() {
-
         $data['page'] = 'News';
-       
+        
+        // Loading News and sending to View page 
+        $this->load->model('btrsnews');
+        
+        /* getting record of specific columns */
+        $cols = ['news', 'added_on']; 
+        $news_record = $this->btrsnews->getRecord(FALSE, $cols); 
+        
+        //echo '<tt><pre>' . var_export($news_record, TRUE) . '</pre></tt>';
+        
+        $data['news_rec'] = $news_record;
+        
         $this->load->view('news', $data);
     }
 
