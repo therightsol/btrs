@@ -105,7 +105,7 @@
                                                 <label class="control-label" id="agree_button" > You want To show This?</label>
                                                 <div class="input-group">
                                                     <input type="radio" name="agree" id="agree_button" value="1" /> Now <br /> 
-                                                    <input type="radio" name="agree" id="agree_button" value="0" /> Later
+                                                    <input type="radio" name="agree" id="agree_button" value="0"  /> Later
 
                                                 </div>
 
@@ -118,11 +118,11 @@
                                         </div>
                                         <br /><br />
                                         <div class="col-md-12">
-                                            <div class="form-group <?php if (form_error('write_news') != '') { ?> has-error <?php } ?>" > 
+                                            <div class="<?php if (form_error('write_news') != '') { ?> has-error <?php } ?>" > 
                                                 <label class="control-label">Write your News Here</label>
-                                                <div class="input-group">
+                                                
 
-                                                    <textarea cols='50' rows='10' style=" resize:none;"  name="write_news"  ><?php
+                                                    <textarea rows='10' style=" resize:none;" class="form-control" name="write_news"  ><?php
                                                         if ($_POST) {
                                                             echo $_POST['write_news'];
                                                         }
@@ -149,7 +149,7 @@
                                                             </span>
         <?php } ?>
                                                     </div>
-                                                </div>
+                                                 
                                             </div> 
                                         </div>
                                         <br /><br />
