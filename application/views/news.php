@@ -44,13 +44,11 @@
 
             </div>
             <div class="portlet-body">
-                
+                <div class="panel-group accordion" id="accordion1">
                 <?php 
-                if(!empty($news_rec)){
-                $x = 1;
-                foreach ($news_rec as $key => $value){ ?>
-                
-                <div class="panel-group accordion" id="accordion<?php echo $x; ?>">
+                if(!empty($news_rec)){ 
+                    $x = 1;
+                foreach ($news_rec as $key => $value){ ?> 
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
@@ -71,13 +69,13 @@
                             </div>
                         </div>
                     </div> 
-                </div>
+                
                 
                 <?php $x++; }
                 }else {
                     // if $news_rec is empty
                 ?>
-                
+                </div> <!-- accordion '.panel-group' closed -->
                 <div class="alert alert-info">
                     <strong> There is no news to display </strong>
                 </div>
