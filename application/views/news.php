@@ -50,7 +50,7 @@
                 $x = 1;
                 foreach ($news_rec as $key => $value){ ?>
                 
-                <div class="panel-group accordion" id="accordion<?php echo $x; ?>">
+                <div class="panel-group accordion" id=" accordion<?php echo $x; ?>" >
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
@@ -87,7 +87,6 @@
             </div>
         </div>
     </div>
-</div>
 <!-- END News section-->
 
 
