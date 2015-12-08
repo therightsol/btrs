@@ -22,6 +22,9 @@ class News extends CI_Controller {
     }
 
     public function insert() {
+        $data['page'] = 'addNews';
+        
+        
         $this->load->helper('form');
         $this->load->helper('date');
         $data['page'] = 'News';

@@ -49,18 +49,18 @@
 
 
 
-                        <li <?php if ($page == 'news') { ?> class="active" <?php } ?> class="dropdown dropdown-toggle">
+                        <li class="dropdown dropdown-toggle <?php if ($page == 'News') { ?> active <?php } ?>">
                             <a href="<?php echo $root; ?>news"  data-toggle="dropdown">
                                 News
                             </a>
 
-                            <ul class="dropdown-menu">
-                                <li>
+                            <ul class="dropdown-menu ">
+                                <li class="<?php if ($page == 'addNews') { ?> active <?php } ?> " >
                                     <a href="<?php echo $root; ?>news/insert">
                                         Add News
                                     </a>
                                 </li>
-                                <li>
+                                <li class="<?php if ($page == 'News') { ?> active <?php } ?> ">
                                     <a href="<?php echo $root; ?>news">
                                         view News
                                     </a>

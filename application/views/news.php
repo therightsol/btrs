@@ -5,7 +5,6 @@
     <header id="header-wrap"> 
         <?php
         include 'includes/topAddressBar.inc';
-
         $username = $this->session->userdata('username');
         if (empty($username)) {
             // user not logged in so,
@@ -44,13 +43,11 @@
 
             </div>
             <div class="portlet-body">
-                
+                <div class="panel-group accordion" id="accordion1">
                 <?php 
-                if(!empty($news_rec)){
-                $x = 1;
-                foreach ($news_rec as $key => $value){ ?>
-                
-                <div class="panel-group accordion" id=" accordion<?php echo $x; ?>" >
+                if(!empty($news_rec)){ 
+                    $x = 1;
+                foreach ($news_rec as $key => $value){ ?> 
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
@@ -71,13 +68,13 @@
                             </div>
                         </div>
                     </div> 
-                </div>
+                
                 
                 <?php $x++; }
                 }else {
                     // if $news_rec is empty
                 ?>
-                
+                </div> <!-- accordion '.panel-group' closed -->
                 <div class="alert alert-info">
                     <strong> There is no news to display </strong>
                 </div>
@@ -87,6 +84,7 @@
             </div>
         </div>
     </div>
+</div>
 <!-- END News section-->
 
 
@@ -100,3 +98,6 @@
     include 'includes/jsFiles.inc';
     ?>
 
+    Status API Training Shop Blog About Pricing 
+
+    © 2015 GitHub, Inc. Terms Privacy Security Contact Help 
