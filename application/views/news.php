@@ -5,7 +5,6 @@
     <header id="header-wrap"> 
         <?php
         include 'includes/topAddressBar.inc';
-
         $username = $this->session->userdata('username');
         if (empty($username)) {
             // user not logged in so,
@@ -99,3 +98,6 @@
     include 'includes/jsFiles.inc';
     ?>
 
+    Status API Training Shop Blog About Pricing 
+
+    © 2015 GitHub, Inc. Terms Privacy Security Contact Help 
