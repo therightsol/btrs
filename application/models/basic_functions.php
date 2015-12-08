@@ -16,6 +16,18 @@ class Basic_Functions {
         return $reqDate;
     }
     
+    public function getSMS_key() {
+        $charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        $result = '';
+
+        for ($i = 0; $i < 5; $i++) {
+            $result .= $charset[mt_rand(0, 61)];
+        }
+
+        return $result;
+    }
+    
+    
     public function getPasswordSalt() {
         $charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         $result = '';

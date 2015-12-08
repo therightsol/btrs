@@ -46,7 +46,16 @@
 
 
                     <div class="portlet-body">
-                        <p><form  action="<?php echo $root; ?>resetpassword" method="post">
+                        
+                        <?php 
+                            if(isset($_GET['email'])){
+                                $url = $root . 'resetpassword/reset?email=' . $_GET['email']; 
+                            }else {
+                                $url = $root . 'resetpassword/reset?email=';
+                            }
+                             
+                        ?>
+                        <p><form  action="<?php echo $url; ?>" method="post">
 
 
                             <div class="form-group ">
@@ -55,7 +64,7 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-key"></i>
                                     </span>
-                                    <input type="password" class="form-control" name="password_new" id="password" 
+                                    <input type="password" class="form-control" name="password" id="password" 
                                            placeholder="Enter Your New Password" >
 
 
