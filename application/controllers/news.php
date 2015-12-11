@@ -107,10 +107,15 @@ class News extends CI_Controller {
     public function update($id = '') {
         $data['page'] = 'update_news';  
         
+        if($_POST){
+            exit;
+        }
+        
+        
         if(!empty($id)){
             // its a request to update news.
             
-            if(filter_input_array(INPUT_POST)){
+            if(filter_input_array(INPUT_GET)){
                 // if this is a post request.
                 
                 
