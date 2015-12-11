@@ -3,6 +3,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class News extends CI_Controller {
+    
+    public function __construct() {
+        parent::__construct();
+        //$this->output->enable_profiler(TRUE);     // benchmarking
+    }
 
     public function index() {
         $data['page'] = 'News';
@@ -106,19 +111,17 @@ class News extends CI_Controller {
     
     public function update($id = '') {
         $data['page'] = 'update_news';  
-        
-        if($_POST){
-            exit;
-        }
-        
+         
         
         if(!empty($id)){
             // its a request to update news.
             
-            if(filter_input_array(INPUT_GET)){
+            
+            //echo( $this->input->server('REQUEST_METHOD') === 'POST');     // debugging/checking that this is a POST request.
+            if($this->input->server('REQUEST_METHOD') === 'POST'){
                 // if this is a post request.
                 
-                
+                echo 'now update_do_update and continue';
                 
             }else {
                 // if this is not a post request.

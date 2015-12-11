@@ -42,7 +42,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-md-offset-1">
-                            <form action='<?php echo $root; ?>news/update/<?php echo $id; ?>' method="post"> 
+                            <form action="<?php echo $root; ?>news/update/<?php echo $id; ?>" method="post"> 
                                     <div class="form-group">  
                                         <div class="input-group">
                                             <span class="input-group-addon"> 
