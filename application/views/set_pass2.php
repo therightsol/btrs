@@ -42,57 +42,30 @@
                         </div>
 
                     </div>
-                    
 
 
 
                     <div class="portlet-body">
                         
-                        <?php 
-                           if($update_success == 'no'){ ?>
-                                <div class="alert alert-danger">
-                                    Some internal error occur. Kindly retry
-                                        </div>
-                        <?php
-                            }if($update_success == 'no'){ //email is empaty ?>
-                                <div class="alert alert-danger">
-                                    ERROR 1005 
-                                        </div>
-                        <?php
-                            }if($base_64 == 'no'){  ?>
-                                <div class="alert alert-danger">
-                                    ERROR 1004, Please Contact to Admin.
-                                        </div>
-                       <?php }
-                             
-                        ?>
                         
-                        <?php   if(isset($_GET['email'])){
-                                $url = $root . 'resetpassword/reset?email=' . $_GET['email']; 
-                            }else {
-                                $url = $root . 'resetpassword/reset?email=';
-                            }
-                            ?>
-                        <p><form  action="<?php echo $url; ?>" method="post">
+                        <p><form  action="<?php echo $root; ?>resetpasswordsms/resetpassword" method="post">
 
 
-                            <div class="form-group " >
+                            <div class="form-group ">
                                 <label for="password" style="margin-left:8px;margin-bottom: -2px;">New PAssword</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="fa fa-key"></i>
                                     </span>
                                     <input type="password" class="form-control" name="password" id="password" 
-                                           placeholder="Enter Your New Password" />
+                                           placeholder="Enter Your New Password" >
 
 
 
                                 </div>
-                              
-                                
-
+                               
                             </div>
-                            <div class="form-group  ">
+                            <div class="form-group ">
                                 <label for="repassword" style="margin-left:8px;margin-bottom: -2px;">Re-Type Password</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">
@@ -101,11 +74,10 @@
                                     <input type="password" class="form-control" name="re_password" id="password" 
                                            placeholder="Confirm Your password" />
 
-
+                                           
 
                                 </div>
-                                
-                                
+                                 
 
                             </div>
                             <div class="form-group ">
@@ -114,7 +86,6 @@
                                 </button>
                             </div>
                         </form>
-                            
                     </div>
                 </div>
             </div>

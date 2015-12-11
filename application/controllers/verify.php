@@ -93,9 +93,6 @@ class Verify extends CI_Controller {
         }
     }
 
-    public function password() {
-        $data['page'] = '';
-        $this->load->view('set_pass', $data);
-    }
+    
 
 }

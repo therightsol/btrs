@@ -71,6 +71,13 @@ class Login extends CI_Controller {
                         
                         if($user_record['isactive'] == '1'){
                             // its means that email is active .
+                            $this->load->model('usertype');
+                            $db_type = $this->usertype->getRecord(FALSE, 'isAdmin');
+                            $user_type = $this->usertype->getRecord();
+                    // type casting, changing obj or std_class to array
+                            $user_type = (array) $user_type;
+                            //var_dump($db_type);
+                            //exit();
                             
                             // setting and loading session library.
                             $this->load->library('session');
@@ -84,10 +91,23 @@ class Login extends CI_Controller {
                             $this->session->set_userdata('email', $user_record['email']);
                             $this->session->set_userdata('homenumber', $user_record['home_number']);
                             
+                            $this->session->set_userdata('isAdmin', $user_type['isAdmin']);
+                            
+                            $usertype = $this->session->userdata('isAdmin');
+                            //echo $usertype;
+                            //exit();
+                            if($user_type['isAdmin'] == '1'){
+                                redirect('Adminpanel');
+                                
+                            }
+                            else{
+                            
                             
                             
                             // Last Step
                             redirect('member');
+                            
+                            }
                             
                         }else {
                             // email is not active.\

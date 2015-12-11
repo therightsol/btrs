@@ -42,7 +42,7 @@
                             </div>
 
                         </div>
-                        <?php if ($emailFound == 'yes') { ?>
+                        <?php if ($email_send == 'yes') { ?>
 
                             <div class="alert alert-success">
                                 Succesfully email sent, please check your mail box 
@@ -50,24 +50,35 @@
 
                         <?php
                         }
-                        if ($emailFound == 'no') {
+                        if ($email_send == 'no') {
                             ?>
                             <div class="alert alert-danger">
-                                email doesn't exists, please click <a href="<?php echo $root; ?>register"> Here </a> to creata account 
-                            </div> <?php
+                                email not sent. some internal error occur. 
+                            </div> 
+                        
+                        <?php
                         }
-
-                        if ($emailFound == '') {
+                        if ($active_not == 'no') {
                             ?>
-
+                            <div class="alert alert-danger">
+                               email not active. <br /> Kindly validate your email before continue.
+                            </div> <?php
+                        }if ($emailFound == 'no') {?>
+                            <div class="alert alert-danger">
+                                email doesn't exists, please click <a href="<?php echo $root; ?>register"> Here </a> to creata account 
+                            </div> 
+                        <?php } ?>
+                        
+                        
+                        
 
                             <div class="portlet-body">
                                 <ul class="nav nav-tabs">
-                                    <li class="active">
-                                        <a href="#tab_1_1" data-toggle="tab">Via Email</a>
+                                    <li class="  active">
+                                        <a href="#tab_1_1" data-toggle="tab" aria-expanded="">Via Email</a>
                                     </li>
-                                    <li class="">
-                                        <a href="#tab_1_2" data-toggle="tab">Via SMS</a>
+                                    <li class=" ">
+                                        <a href="#tab_1_2" data-toggle="tab" aria-expanded="">Via SMS</a>
                                     </li>
 
                                 </ul>
@@ -80,15 +91,20 @@
                                                     <form class="forget-form" action="<?php echo $root; ?>resetpassword" method="post">
                                                         <h3>Forget Password ?</h3>
                                                         <p>
-                                                            Enter your e-mail address below to reset your password.
+                                                            Enter your e-mail address below to reset your password .
                                                         </p>
-                                                        <div class="form-group">
+                                                        <div class="form-group <?php if (form_error('email') != '') {?> has-error <?php }?>"  />
                                                             <div class="input-group">
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-envelope"></i>
                                                                 </span>
-                                                                <input class="form-control placeholder-no-fix" type="email" autocomplete="off" placeholder="Email" name="email"/>
+                                                                <input class="form-control placeholder-no-fix" type="text"  placeholder="Enter Your email Adress" name="email" />
                                                             </div>
+                                                             <?php if (form_error('email') != '') { ?>
+                                                    <span class="help-block">
+                                                        <?php echo form_error('email'); ?>
+                                                    </span>
+                                                <?php } ?>
                                                         </div>
                                                         <div class="">
 
@@ -109,43 +125,51 @@
                                     <div class="container" style="margin-top: 10px;margin-bottom: 10px;">
                                         <div class="row">
                                             <div class="col-sm-4 col-sm-offset-2">
-                                                <form class="forget-form" action="#" method="post">
+                                                <form class="forget-form" action="<?php echo $root; ?>resetpasswordsms" method="post">
                                                     <h3>Forget Password ?</h3>
                                                     <p>
-                                                        Enter your Mobile Number below to reset your password.
+                                                        Enter your Email below to reset your password Via SMS.
                                                     </p>
-                                                    <div class="form-group">
+                                                    <div class="form-group <?php if (form_error('email_sms') != '') {?> has-error <?php }?>">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-mobile"></i>
                                                             </span>
-                                                            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Enter Your Mobile Number" name="email"/>
+                                                            <input class="form-control placeholder-no-fix" type="text"  placeholder="Enter Your email Adress" name="email_sms"/>
                                                         </div>
+                                                        <?php if (form_error('email_sms') != '') { ?>
+                                                    <span class="help-block">
+                                                        <?php echo form_error('email_sms'); ?>
+                                                    </span>
+                                                <?php } ?>
                                                     </div>
                                                     <div class="">
 
                                                         <button type="submit" class="btn green pull-right">
                                                             Submit <i class="m-icon-swapright m-icon-white"></i>
                                                         </button>
+                                                        </div>
                                                 </form>
 
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <!-- END FORGOT PASSWORD FORM -->
                                 </p>
                             </div>
-
-                        </div>
-                    </div>
-    <?php } ?>
+                                   
+                               
+                                   
+                                   <?php }?>
             </div>
         </div>
     </div>
     </div>
-    <!-- Rest page strt here -->
-<?php } if (!empty($username)) {
+            </div>
+        </div>
+            <!-- Rest page strt here -->
+<?php  if (!empty($username)) {
     ?>
     <div class="container">
         <div class="row">

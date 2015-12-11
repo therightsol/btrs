@@ -8,8 +8,11 @@ class Resetpassword extends CI_Controller {
 
         $data['page'] = 'Resetpassword';
         $data['emailFound'] = '';
+        $data['active_not'] = '';
+        $data['email_send'] = '';
         $rules = array(
-            array('field' =>'email',
+            array(
+                'field' =>'email',
                 'label' => 'Enter Email',
                 'rules' => 'required|max_length[45]|valid_email|trim'
             )
@@ -69,22 +72,23 @@ class Resetpassword extends CI_Controller {
                     
                     
                     $success = $this->send_email($uemail, $rec[0]['fullname']);
-                    
+                    $data['active_not'] = 'yes';
                     if($success){
                         $data['email_send'] = 'yes';
-                        echo 'email sent . kindly check your email to continue.';
-                        //$this->load->view('re-pass', $data);
+                        //echo 'email sent . kindly check your email to continue.';
+                        $this->load->view('re-pass', $data);
                     }else {
                         /*
                          * it is totally up to our server or server setting if email not sent.
                          */
                         $data['email_send'] = 'no';
-                        echo 'email not sent. some internal error occur.';
-                        //$this->load->view('re-pass', $data);
+                       // echo 'email not sent. some internal error occur.';
+                        $this->load->view('re-pass', $data);
                     }
                     
                 }else {
                     // email is not active.
+                    $data['active_not'] = 'no';
                     echo 'email not active. <br /> Kindly validate your email before continue.';
                     
                 } 
@@ -100,6 +104,9 @@ class Resetpassword extends CI_Controller {
     
     public function reset(){
         $data['page'] = 'Resetpassword';
+        $data['email_empaty'] = '';
+        $data['base_64'] = '';
+        $data['update_success'] = '';
         
         // check if post    === $_POST
         if(filter_input_array(INPUT_POST)){
@@ -164,19 +171,29 @@ class Resetpassword extends CI_Controller {
                             $url = base_url() . 'login';
                             header( "refresh:3; url=$url" );
                         } else {
-                            echo 'Some internal error occur. Kindly retry.';
+                            $data['update_success'] = 'no';
+                            $this->load->view('set_pass', $data);
+                           
                         }
+                            
+                        
                     } else {
                         // if validation fail.
-                        echo 'password validation fail. [Show in view file.]';
+                        $this->load->view('set_pass', $data);
+                        
                     }
                 }else {
                     // plain email is empty
+                    $data['email_empaty'] = 'no';
+                    $this->load->view('set_pass', $data);
                 }
             }else {
                 // base 64 email not found in url
+                 $data['base_64'] = 'no';
+                   $this->load->view('set_pass', $data);
             } 
-        }else {
+        }else{
+            
             $this->load->view('set_pass', $data);
         } 
     }
