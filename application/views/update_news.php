@@ -31,21 +31,62 @@
             </div>
         </div>
         <!-- Page Header End -->
-        <div>
-        
-        <br />
-        <br/>
-        
-        <br />
-        <br/><br />
-        <br/><br />
-        <br/><br />
-        <br/><br />
-        <br/>
-        
-        
-        <br />
+        <div class="container">
+        <div class="portlet box green green-stripe" style="margin-top:30px;">
+            <div class="portlet-title">
+                <div class="caption">
+                   
+                    <i class="fa fa-newspaper-o"></i>Update News
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div class="panel-group accordion" id="accordion1">
+                <?php 
+                if(!empty($news_rec)){ 
+                    $x = 1;
+                foreach ($news_rec as $key => $value){ ?> 
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_<?php echo $x; ?>">
+                                    <?php //echo '<tt><pre>' . var_export( $value, TRUE) . '</pre></tt>' 
+                                        echo 'News Date  |  ' . $value['added_on']; 
+                                    ?></a>
+                            </h4>
+                        </div>
+                        <div id="collapse_<?php echo $x; ?>" 
+                             class="panel-collapse 
+                                 <?php if($x == '1'){?> in <?php }else { ?> collapse <?php } ?>"
+                        >
+                            <div class="panel-body">
+                                <p>
+                                    <?php echo $value['news']; ?>
+                                </p>
+                                <div class="col-sm-3 col-sm-offset-6"> 
+                                    <a class="btn btn-primary btn-block" href="<?php echo $root; ?>news/update/<?php echo $value['nid']; ?>">Update</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                
+                
+                <?php $x++; }
+                }else {
+                    // if $news_rec is empty
+                ?>
+                </div> <!-- accordion '.panel-group' closed -->
+                <div class="alert alert-info">
+                    <strong> There is no news to display </strong>
+                </div>
+               <?php    
+                }
+                ?>
+            </div>
         </div>
+    </div>
+</div>
+<!-- END News section-->
         
         
         
