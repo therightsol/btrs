@@ -18,8 +18,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>assets/css/main.css">
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>assets/css/responsive.css">
-    <!--Fonts-->
-    <link rel="stylesheet" media="screen" href="<?php echo $root; ?>assets/fonts/font-awesome/font-awesome.min.css">
+    <!--Fonts--> 
     <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>assets/fonts/plain/plain-fonts.css">
     
      
@@ -57,7 +56,7 @@
     
     
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="<?php echo $root; ?>assets/metronic/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link href="<?php echo $root; ?>assets/metronic/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
     

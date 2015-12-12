@@ -9,20 +9,35 @@
             <span >
                 <i class="fa fa-map-marker">
                 </i>
-                Johar Town Lahore, Pakistan
+                Lahore, Pakistan
             </span>
 
+            <!--
             <span>
                 <i class="fa fa-mobile-phone">
                 </i>
                 0300-1234567
-            </span>
+            </span> 
+            -->
 
             <span>
                 <i class="fa fa-envelope">
                 </i>
-                <a class="__cf_email__" href="../../../cdn-cgi/l/email-protection.htm" data-cfemail="c0a5ada1a9ac80a5b8a1adb0aca5eea3afad">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">
-                    /* <![CDATA[ */!function(){try{var t = "currentScript"in document?document.currentScript:function(){for (var t = document.getElementsByTagName("script"), e = t.length; e--; )if (t[e].getAttribute("data-cfhash"))return t[e]}(); if (t && t.previousSibling){var e, r, n, i, c = t.previousSibling, a = c.getAttribute("data-cfemail"); if (a){for (e = "", r = parseInt(a.substr(0, 2), 16), n = 2; a.length - n; n += 2)i = parseInt(a.substr(n, 2), 16) ^ r, e += String.fromCharCode(i); e = document.createTextNode(e), c.parentNode.replaceChild(e, c)}t.parentNode.removeChild(t); }} catch (u){}}()/* ]]> */</script>
+                <a href="mailto:info@therightsol.com">info@therightsol.com</a>
+            </span>
+            
+            
+            <span>
+                <i class="fa fa-building">
+                </i>
+                TR Solutions
+            </span>
+            
+            
+            <span>
+                <i class="fa fa-edge">
+                </i>
+                <a href="http://www.therightsol.com">http://www.therightsol.com</a>
             </span>
         </div>
         <!-- Quick Contacts Ends -->
