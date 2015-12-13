@@ -8,6 +8,7 @@
         <?php
         
     $username = $this->session->userdata('username');
+
         if (empty($username)) {
             
             // user not logged in so,
