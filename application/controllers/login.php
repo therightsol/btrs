@@ -2,8 +2,8 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller { 
-    
+class Login extends CI_Controller {
+
     public function __construct() {
         parent::__construct();
         $this->load->helper('form');
@@ -11,7 +11,9 @@ class Login extends CI_Controller {
 
     public function index() {
         $data['page'] = 'login';
-        $data['userfound'] = '';  
+        $data['userfound'] = '';
+        $data['active_email'] = '';
+        $data['password_found'] = '';
 
         if ($_POST) {
             $rules = array(
@@ -29,7 +31,7 @@ class Login extends CI_Controller {
 
 
 
-            $this->load->library('form_validation'); 
+            $this->load->library('form_validation');
             $this->form_validation->set_rules($rules);
 
             if (!$this->form_validation->run() == FALSE) {
@@ -53,35 +55,34 @@ class Login extends CI_Controller {
                     $this->load->view('login_form', $data);
                 } else {
                     // user found. show error. user already available.
-                    
+
                     $user_record = $this->user->getRecord($un, 'username');
                     // type casting, changing obj or std_class to array
                     $user_record = (array) $user_record;
-                    
+
                     //echo '<tt><pre>' . var_export($user_record, True) . '</tt></pre>';exit;
-                    
+
                     $dbPass = $user_record['password'];
                     $db_username = $user_record['username'];
-                    
+
                     $password = $this->input->post('us_passwrod', True);
-                     
-                    
-                    if($un == $db_username && password_verify($password, $dbPass)){
+
+
+                    if ($un == $db_username && password_verify($password, $dbPass)) {
                         // if password and dbPass is equal / matched
-                        
-                        if($user_record['isactive'] == '1'){
+
+                        if ($user_record['isactive'] == '1') {
                             // its means that email is active .
                             $this->load->model('usertype');
                             $db_type = $this->usertype->getRecord(FALSE, 'isAdmin');
                             $user_type = $this->usertype->getRecord();
-                    // type casting, changing obj or std_class to array
+                            // type casting, changing obj or std_class to array
                             $user_type = (array) $user_type;
                             //var_dump($db_type);
                             //exit();
-                            
                             // setting and loading session library.
                             $this->load->library('session');
-                            
+
                             /*
                              *  saving session. because session is secure and will save on server side.
                              * takes 2 parameters. Key and Value
@@ -90,31 +91,31 @@ class Login extends CI_Controller {
                             $this->session->set_userdata('fullname', $user_record['fullname']);
                             $this->session->set_userdata('email', $user_record['email']);
                             $this->session->set_userdata('homenumber', $user_record['home_number']);
-                            
+
                             $this->session->set_userdata('isAdmin', $user_type['isAdmin']);
-                            
+
                             $usertype = $this->session->userdata('isAdmin');
                             //echo $usertype;
                             //exit();
-                            if($user_type['isAdmin'] == '1'){
+                            if ($user_type['isAdmin'] == '1') {
                                 redirect('Adminpanel');
-                                
+                            } else {
+
+
+
+                                // Last Step
+                                redirect('member');
                             }
-                            else{
-                            
-                            
-                            
-                            // Last Step
-                            redirect('member');
-                            
-                            }
-                            
-                        }else {
-                            // email is not active.\
+                        } else {
+                            // email is not active.
+                            $data['active_email'] = 'no';
+                            $this->load->view('login_form', $data);
                             echo 'Your email is not active. kindly activate your account before continue.';
                         }
-                    }else {
+                    } else {
                         // show error, password wrong
+                        $data['password_found'] = 'no';
+                        $this->load->view('login_form', $data);
                         echo 'password is wrong';
                     }
                 }
