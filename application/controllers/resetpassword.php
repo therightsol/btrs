@@ -89,7 +89,8 @@ class Resetpassword extends CI_Controller {
                 }else {
                     // email is not active.
                     $data['active_not'] = 'no';
-                    echo 'email not active. <br /> Kindly validate your email before continue.';
+                    $this->load->view('re-pass', $data);
+                    //echo 'email not active. <br /> Kindly validate your email before continue.';
                     
                 } 
             } else {

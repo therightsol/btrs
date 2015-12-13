@@ -9,9 +9,12 @@ class Resetpasswordsms extends CI_Controller {
         $data['page'] = 'Resetpasswordsms';
         $data['emailFound'] = '';
         $data['active_not'] = '';
-        $data['$key_gen'] = '';
+        $data['key_gen'] = '';
         $data['email_send'] = '';//yeah del krna ha
         $data['success_smsmail'] = '';
+        $data['code_matched']= '';
+        $data['form_validate']= '';
+        
         $rules = array(
             array(
                 'field' =>'email_sms',
@@ -68,19 +71,28 @@ class Resetpasswordsms extends CI_Controller {
                                 
                                 
                             }else{
-                             echo 'not send email';   
+                             //echo 'not send email';  
+                             $data['success_smsmail'] = 'no';
+                              $this->load->view('restpass_sms' , $data);
                             }
                             
                             
                         }else{
-                          echo 'code genrate errors';  
+                           // <!--if code not genrate -->
+                            
+                            $this->load->view('restpass_sms' , $data);
+                           
                         }
                  }else{
-                     echo'email not acivate';
+                     //echo'email not acivate';
+                     $data['active_not'] = 'no';
+                      $this->load->view('restpass_sms' , $data);
                  }
 
              }else{
-                 echo 'user not found';
+                 $data['emailFound'] = 'no';
+                 $this->load->view('restpass_sms' , $data);
+                // echo 'user not found';
              }
             
         }else{
@@ -90,11 +102,23 @@ class Resetpasswordsms extends CI_Controller {
 }
  public function codeverification() {
      $data['page'] = 'Resetpasswordsms';
+     $data['key_gen'] = '';
+     $data['code_matched']= '';
+     $data['active_not'] = '';
+       $data['update_success'] = '';
+     $data['empatymail'] = '';
+     $data['success_smsmail'] = '';
+     $data['emailFound'] = '';
+     $data['form_validate']= '';
+    
+      
       $code =$this->input->post('code', True);
       $key_sms = $this->session->userdata('smskey');
-                  // echo $code;
-                       // exit();
+                  //echo $key_sms;
+                       //exit();
         if($code == $key_sms){
+            //echo $key_sms;
+                       //exit();
              if(filter_input_array(INPUT_POST)){
                  $this->load->view('set_pass2', $data);
                  //echo 'code matched now u can procedue further';
@@ -106,12 +130,21 @@ class Resetpasswordsms extends CI_Controller {
              }
                                         
                 }else{
-                    echo 'code not matched';
+                    //echo 'code not matched';
+                    $data['code_matched'] = "no";
+                    $this->load->view('restpass_sms', $data);
                            }
      
  }
  public function resetpassword() {
      $data['page'] = '';
+     $data['update_success'] = '';
+     $data['empatymail'] = '';
+     $data['success_smsmail'] = '';
+     $data['emailFound'] = '';
+     $data['active_not'] = '';
+     $data['form_validate']= '';
+     
      if(filter_input_array(INPUT_POST)){
          $uemail = $this->session->userdata('email');
          //echo $uemail;
@@ -161,18 +194,25 @@ class Resetpasswordsms extends CI_Controller {
                         
                         if ($rows == 1) {
                             $data['update_success'] = 'yes';
-                            echo 'Your password has been updated.';
+                             $this->load->view('set_pass2', $data);
+                            //echo 'Your password has been updated.';
                             $url = base_url() . 'login';
                             header( "refresh:3; url=$url" );
                         } else {
-                            echo 'Some internal error occur. Kindly retry.';
+                            $data['update_success'] = 'no';
+                            //echo 'Some internal error occur. Kindly retry.';
+                             $this->load->view('set_pass2', $data);
                         }
                     } else {
                         // if validation fail.
-                        echo 'password validation fail. [Show in view file.]';
+                        $data['form_validate']= 'no';
+                         $this->load->view('set_pass2', $data);
+                        //echo 'password validation fail. [Show in view file.]';
                     }
                 }else {
                     // plain email is empty
+                     $data['empatymail'] = 'no';
+                     $this->load->view('set_pass2', $data);
                 }
      
      

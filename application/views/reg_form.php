@@ -161,11 +161,11 @@
                                                     </span> 
                                                     <input type="password" placeholder="Enter 8 - 45 characters" class="form-control" name="password" id="password_strength" <?php if ($_POST) { ?> value="<?php echo $_POST['password']; ?>" <?php } ?> />  
                                                 </div> 
-                                                <?php if (form_error('password') != '') { ?>
-                                                    <span class="help-block">
-                                                        <?php echo form_error('password'); ?>
-                                                    </span>
-                                                <?php } ?>
+                                                    <?php if (form_error('password') != '') { ?>
+                                                        <span class="help-block">
+                                                            <?php echo form_error('password'); ?>
+                                                        </span>
+                                                    <?php } ?>
                                             </div>
                                         </div>
 
