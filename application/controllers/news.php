@@ -15,7 +15,13 @@ class News extends CI_Controller {
         $news_record = $this->load_news('view_news');
         $data['news_rec'] = $news_record;
         
-        $this->load->view('news', $data);
+        /*  
+         *  Kint Library for Debugging.
+         *  $this->load->library('kint');  
+         *  $this->kint->dump($news_record);
+        */
+        
+        $this->load->view('news', $data); 
     }
 
     public function insert() {
