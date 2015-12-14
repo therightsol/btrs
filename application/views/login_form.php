@@ -52,14 +52,14 @@
 
 
                                 <p><form  action="<?php echo $root; ?>login" method="post">
-
-
-                                    <div class="form-group  <?php if (form_error('username') != '' || $userfound == 'no') { ?> has-error <?php } ?>">
-                                        <?php if ($userfound == 'no' || $password_found == 'no') { ?>
-                                            <span class="help-block">
-                                                Sorry! User name or password is Incorrect.<br /> Please try again 
-                                            </span>
+                                            <?php if ($userfound == 'no' || $password_found == 'no') { ?>
+                                    <strong> <span class=" text-danger">
+                                                Sorry! User name or password is Incorrect. Please try again 
+                                        </span></strong>
                                         <?php } ?>
+
+                                    <div class="form-group  <?php if (form_error('username') != '' || $userfound == 'no') { ?> has-error <?php } ?> " >
+                                         
                                         <label for="username" style="margin-left:8px;margin-bottom: -2px;">User Name</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">

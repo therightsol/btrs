@@ -64,16 +64,22 @@
                             <div class="alert alert-danger">
                                 ERROR 1004, Please Contact to Admin.
                             </div>
-                        <?php }
-                        ?>
+                        <?php } if($update_success =='yes'){ ?>
+                        <div class="alert alert-success">
+                                Your password has been updated <br />
+                                Now will be redirect to <a href='<?php echo $root ?>login'> Login </a> within 3 Seconds.
+                            </div>
 
-                        <?php
+                        <?php }
+
+                        
                         if (isset($_GET['email'])) {
                             $url = $root . 'resetpassword/reset?email=' . $_GET['email'];
                         } else {
                             $url = $root . 'resetpassword/reset?email=';
-                        }
+                        } 
                         ?>
+                        <?php  if($update_success ==''){ ?>
                         <p><form  action="<?php echo $url; ?>" method="post">
 
 
@@ -133,7 +139,7 @@
                                 </button>
                             </div>
                         </form>
-
+                        <?php }?>
                     </div>
                 </div>
             </div>

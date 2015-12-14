@@ -69,18 +69,15 @@ class Login extends CI_Controller {
 
 
                     if ($un == $db_username && password_verify($password, $dbPass)) {
+                        $this->load->model('usertype');
+                        $usertype = $this->usertype->getRecord($un, 'username');
+                        $usertype = (array) $usertype;
+                        //$usertype_name = $usertype['userame'];
+                        $status = $usertype['isAdmin'];
                         // if password and dbPass is equal / matched
 
                         if ($user_record['isactive'] == '1') {
-                            // its means that email is active .
-                            $this->load->model('usertype');
-                            $db_type = $this->usertype->getRecord(FALSE, 'isAdmin');
-                            $user_type = $this->usertype->getRecord();
-                            // type casting, changing obj or std_class to array
-                            $user_type = (array) $user_type;
-                            //var_dump($db_type);
-                            //exit();
-                            // setting and loading session library.
+
                             $this->load->library('session');
 
                             /*
@@ -92,20 +89,28 @@ class Login extends CI_Controller {
                             $this->session->set_userdata('email', $user_record['email']);
                             $this->session->set_userdata('homenumber', $user_record['home_number']);
 
-                            $this->session->set_userdata('isAdmin', $user_type['isAdmin']);
-
-                            $usertype = $this->session->userdata('isAdmin');
-                            //echo $usertype;
-                            //exit();
-                            if ($user_type['isAdmin'] == '1') {
-                                redirect('Adminpanel');
-                            } else {
 
 
+                            if ($status == '1') {
+                                redirect('adminpanel');
+                                $this->load->library('session');
 
-                                // Last Step
+                                $this->session->set_userdata('isAdmin', $status);
+                            } elseif ($status == '0') {
                                 redirect('member');
                             }
+                            // its means that email is active .
+                            //$user_type = $this->usertype->getRecord();
+                            // type casting, changing obj or std_class to array
+                            //$user_type = (array) $user_type;
+                            //var_dump($status);
+                            //exit();
+                            // setting and loading session library.
+                            //load model
+                            // echo'<tt><pre>' . var_export($db_usertype[0]['username'] , True) . '</tt></pre>'; exit();
+                            //echo $value['username'];
+                            //exit();
+                            //}
                         } else {
                             // email is not active.
                             $data['active_email'] = 'no';
@@ -116,7 +121,7 @@ class Login extends CI_Controller {
                         // show error, password wrong
                         $data['password_found'] = 'no';
                         $this->load->view('login_form', $data);
-                        echo 'password is wrong';
+                        //echo 'password is wrong';
                     }
                 }
             } else {

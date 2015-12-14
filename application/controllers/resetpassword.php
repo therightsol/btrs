@@ -168,7 +168,8 @@ class Resetpassword extends CI_Controller {
                         
                         if ($rows == 1) {
                             $data['update_success'] = 'yes';
-                            echo 'Your password has been updated.';
+                             $this->load->view('set_pass', $data);
+                            //echo 'Your password has been updated.';
                             $url = base_url() . 'login';
                             header( "refresh:3; url=$url" );
                         } else {
