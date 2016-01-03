@@ -27,8 +27,8 @@
                                 Home
                             </a>
                         </li> 
-                        <li <?php if ($page == 'member') { ?> class="active" <?php } ?> >
-                            <a href="<?php echo $root; ?>member" >
+                        <li <?php if ($page == 'adminpanel') { ?> class="active" <?php } ?> >
+                            <a href="<?php echo $root; ?>Adminpanel" >
                                 Profile
                             </a>
                         </li> 

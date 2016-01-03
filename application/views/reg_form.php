@@ -483,6 +483,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                     <div class="form-group " style="color:grey">
+                                         <label class="control-label"><strong>By signing up, I agree Terms of Service, Privacy Policy.</strong></label>
+                                     </div>
                         </div>
                         <div class="form-actions right"> 
                             <button type="submit" class="btn blue"><i class="fa fa-check"></i>Register</button>
